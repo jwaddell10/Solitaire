@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://vbim5dd6ujt6"]
+[gd_scene load_steps=8 format=3 uid="uid://vbim5dd6ujt6"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" uid="uid://d4jr77sjhoe7w" path="res://scripts/Main.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://kc7mkv2huojp" path="res://scripts/stock.gd" id="2_c01mt"]
+[ext_resource type="Script" uid="uid://1b0s6vuor8wn" path="res://scripts/foundation_2.gd" id="3_0bbpv"]
+[ext_resource type="Script" uid="uid://bidsge536lrqm" path="res://scenes/waste.gd" id="3_c01mt"]
+[ext_resource type="Script" uid="uid://i3amer5wubs8" path="res://scripts/foundation_3.gd" id="4_vcsgt"]
+[ext_resource type="Script" uid="uid://c0w5iar0fnv0a" path="res://scripts/foundation_4.gd" id="5_c01mt"]
+
+[sub_resource type="GDScript" id="GDScript_vcsgt"]
+script/source = "extends Node2D
+
+const BORDER_COLOR = Color(1, 1, 1, 0.5)  # White, semi-transparent
+const BORDER_SIZE = Vector2(140, 190)    # Size of a card
+
+func _draw():
+	draw_rect(Rect2(Vector2(0, 10), BORDER_SIZE), BORDER_COLOR, false, 2.0)
+"
+
+[node name="SolitaireGame" type="Node2D"]
+script = ExtResource("1_elqb8")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0.306737, 0.564363, 3.46541e-06, 1)
+
+[node name="Deck" type="Node2D" parent="."]
+
+[node name="Stock" type="Node2D" parent="Deck"]
+script = ExtResource("2_c01mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/Stock"]
+position = Vector2(850, 100)
+scale = Vector2(2, 2)
+
+[node name="Waste" type="Node2D" parent="Deck"]
+position = Vector2(470, 2)
+script = ExtResource("3_c01mt")
+
+[node name="Foundation" type="Node2D" parent="."]
+
+[node name="Foundation1" type="Node2D" parent="Foundation"]
+script = SubResource("GDScript_vcsgt")
+
+[node name="Foundation2" type="Node2D" parent="Foundation"]
+script = ExtResource("3_0bbpv")
+
+[node name="Foundation3" type="Node2D" parent="Foundation"]
+script = ExtResource("4_vcsgt")
+
+[node name="Foundation4" type="Node2D" parent="Foundation"]
+script = ExtResource("5_c01mt")
+
+[node name="Tableau" type="Node2D" parent="."]
+
+[node name="Pile1" type="Node2D" parent="Tableau"]
+
+[node name="Pile2" type="Node2D" parent="Tableau"]
+
+[node name="Pile3" type="Node2D" parent="Tableau"]
+
+[node name="Pile4" type="Node2D" parent="Tableau"]
+
+[node name="Pile5" type="Node2D" parent="Tableau"]
+
+[node name="Pile6" type="Node2D" parent="Tableau"]
+
+[node name="Pile7" type="Node2D" parent="Tableau"]

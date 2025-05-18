@@ -9,3 +9,5 @@ script = ExtResource("1_yiag5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_yiag5")
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
