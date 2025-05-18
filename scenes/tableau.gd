@@ -4,4 +4,4 @@ var cards = []
 
 func set_cards(new_cards):
 	cards = new_cards
-	print("stock cards:", cards, cards.size())
+	print("Tableau cards:", cards)

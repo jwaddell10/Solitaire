@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vbim5dd6ujt6"]
+[gd_scene load_steps=9 format=3 uid="uid://vbim5dd6ujt6"]
 
 [ext_resource type="Script" uid="uid://d4jr77sjhoe7w" path="res://scripts/Main.gd" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://kc7mkv2huojp" path="res://scripts/stock.gd" id="2_c01mt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bidsge536lrqm" path="res://scenes/waste.gd" id="3_c01mt"]
 [ext_resource type="Script" uid="uid://i3amer5wubs8" path="res://scripts/foundation_3.gd" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://c0w5iar0fnv0a" path="res://scripts/foundation_4.gd" id="5_c01mt"]
+[ext_resource type="Script" uid="uid://c1x3jcd2b6hiu" path="res://scenes/tableau.gd" id="7_nxtc6"]
 
 [sub_resource type="GDScript" id="GDScript_vcsgt"]
 script/source = "extends Node2D
@@ -55,6 +56,7 @@ script = ExtResource("4_vcsgt")
 script = ExtResource("5_c01mt")
 
 [node name="Tableau" type="Node2D" parent="."]
+script = ExtResource("7_nxtc6")
 
 [node name="Pile1" type="Node2D" parent="Tableau"]
 
