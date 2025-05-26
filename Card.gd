@@ -1,24 +1,24 @@
-extends Node2D
-#
-var ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
-var suits = ["Hearts", "Spades", "Diamonds", "Clubs"]
-var deck = [];
+extends Sprite2D
 
-func _ready():
-	get_cards()
-	print_deck()
+@onready var label: Label = $Label
 
-func get_cards():
-	for suit in suits:
-		for rank in ranks:
-			var card = {
-				"rank": rank,
-				"suit": suit
-			}
-			deck.append(card)
+func _check_var():
+	print(label, 'label in card')
 
-func print_deck():
-	print(deck, deck.size())
+var flipped: bool = false:
+	get:
+		return flipped
+	set(value):
+		if value:
+			label.text = "Face Down"
+		else:
+			label.text = "Face Up"
+		flipped = value
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			flipped = !flipped
 #
 #func _ready():
 	#if rank != "" and suit != "":

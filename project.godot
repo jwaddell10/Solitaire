@@ -15,12 +15,6 @@ run/main_scene="uid://vbim5dd6ujt6"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=1024
-window/size/viewport_height=768
-window/stretch/mode="canvas_items"
-
 [dotnet]
 
 project/assembly_name="Solitaire"

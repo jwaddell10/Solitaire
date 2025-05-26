@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var stock_pile = $Deck/Stock
+@onready var stock_pile = $Stock
 @onready var tableau_pile = $Tableau
 
 func _ready():
