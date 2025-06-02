@@ -1,24 +1,41 @@
-extends Sprite2D
+extends Node2D
 
-@onready var label: Label = $Label
+@onready var sprite : Sprite2D = $Sprite
+@onready var waste_card : Sprite2D = $waste_card
 
-func _check_var():
-	print(label, 'label in card')
+var rank: String
+var suit: String
+var is_face_up: bool = true
 
-var flipped: bool = false:
-	get:
-		return flipped
-	set(value):
-		if value:
-			label.text = "Face Down"
-		else:
-			label.text = "Face Up"
-		flipped = value
+func show_card(card_data: Dictionary, face_up: bool = true) -> void:
+	print(sprite, 'text path')
+	rank = card_data.rank.to_lower()
+	suit = card_data.suit.to_lower()
+	is_face_up = face_up
+	if is_face_up:
+		var texture_path = "res://card_assets/{rank}_of_{suit}.png".format({
+			"rank": rank.to_lower(),
+			"suit": suit.to_lower()
+		})
+	#var card_name = "res://card_assets/{rank}_of_{suit}.png".format({"rank": rank, "suit": suit})
+	#texture = load(path)
+	#print(texture, 'texture in card')
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			flipped = !flipped
+#
+#var flipped: bool = false:
+	#get:
+		#return flipped
+	#set(value):
+		#if value:
+			#label.text = "Face Down"
+		#else:
+			#label.text = "Face Up"
+		#flipped = value
+#
+#func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	#if event is InputEventMouseButton:
+		#if event.pressed:
+			#flipped = !flipped
 #
 #func _ready():
 	#if rank != "" and suit != "":

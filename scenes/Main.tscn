@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://vbim5dd6ujt6"]
+[gd_scene load_steps=12 format=3 uid="uid://vbim5dd6ujt6"]
 
 [ext_resource type="Script" uid="uid://d4jr77sjhoe7w" path="res://scripts/Main.gd" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://kc7mkv2huojp" path="res://scripts/stock.gd" id="2_jlsqs"]
+[ext_resource type="Script" uid="uid://lbkyvwfwj7td" path="res://scripts/Deck.gd" id="2_lhr70"]
 [ext_resource type="Script" uid="uid://1b0s6vuor8wn" path="res://scripts/foundation_2.gd" id="3_0bbpv"]
 [ext_resource type="Script" uid="uid://bidsge536lrqm" path="res://scripts/waste.gd" id="3_c01mt"]
 [ext_resource type="Texture2D" uid="uid://cx8k2tr25mrac" path="res://card_assets/back.png" id="3_jlsqs"]
@@ -30,69 +31,72 @@ offset_right = 960.0
 offset_bottom = 540.0
 color = Color(0.306737, 0.564363, 3.46541e-06, 1)
 
-[node name="Stock" type="Node2D" parent="." node_paths=PackedStringArray("game_spaces")]
+[node name="Deck" type="Node2D" parent="."]
+script = ExtResource("2_lhr70")
+
+[node name="Stock" type="Node2D" parent="Deck" node_paths=PackedStringArray("game_spaces")]
 script = ExtResource("2_jlsqs")
 game_spaces = [NodePath("stock_pile_location"), NodePath("Waste_Pile/waste_pile_location")]
 
-[node name="Waste_Pile" type="Node2D" parent="Stock"]
+[node name="Waste_Pile" type="Node2D" parent="Deck/Stock"]
 position = Vector2(844, 88)
 script = ExtResource("3_c01mt")
 
-[node name="waste_pile_location" type="Marker2D" parent="Stock/Waste_Pile"]
+[node name="waste_pile_location" type="Marker2D" parent="Deck/Stock/Waste_Pile"]
 position = Vector2(-112, -2)
 scale = Vector2(0.15, 0.15)
 
-[node name="Button" type="Button" parent="Stock/Waste_Pile"]
+[node name="Button" type="Button" parent="Deck/Stock/Waste_Pile"]
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="waste_card" type="Sprite2D" parent="Stock/Waste_Pile"]
+[node name="waste_card" type="Sprite2D" parent="Deck/Stock/Waste_Pile"]
 scale = Vector2(0.15, 0.15)
 script = ExtResource("4_q8u5g")
 
-[node name="Button" type="Button" parent="Stock"]
+[node name="Button" type="Button" parent="Deck/Stock"]
 show_behind_parent = true
 offset_left = 813.0
 offset_top = 44.0
 offset_right = 876.0
 offset_bottom = 133.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Stock"]
+[node name="Sprite2D" type="Sprite2D" parent="Deck/Stock"]
 position = Vector2(846, 88)
 texture = ExtResource("3_jlsqs")
 
-[node name="stock_pile_location" type="Marker2D" parent="Stock"]
+[node name="stock_pile_location" type="Marker2D" parent="Deck/Stock"]
 position = Vector2(844, 88)
 
-[node name="Foundation" type="Node2D" parent="."]
-
-[node name="Foundation1" type="Node2D" parent="Foundation"]
-script = SubResource("GDScript_vcsgt")
-
-[node name="Foundation2" type="Node2D" parent="Foundation"]
-script = ExtResource("3_0bbpv")
-
-[node name="Foundation3" type="Node2D" parent="Foundation"]
-script = ExtResource("4_vcsgt")
-
-[node name="Foundation4" type="Node2D" parent="Foundation"]
-script = ExtResource("5_c01mt")
-
-[node name="Tableau" type="Node2D" parent="."]
+[node name="Tableau" type="Node2D" parent="Deck"]
 script = ExtResource("7_nxtc6")
 
-[node name="Pile1" type="Node2D" parent="Tableau"]
+[node name="Pile1" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile2" type="Node2D" parent="Tableau"]
+[node name="Pile2" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile3" type="Node2D" parent="Tableau"]
+[node name="Pile3" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile4" type="Node2D" parent="Tableau"]
+[node name="Pile4" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile5" type="Node2D" parent="Tableau"]
+[node name="Pile5" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile6" type="Node2D" parent="Tableau"]
+[node name="Pile6" type="Node2D" parent="Deck/Tableau"]
 
-[node name="Pile7" type="Node2D" parent="Tableau"]
+[node name="Pile7" type="Node2D" parent="Deck/Tableau"]
 
-[connection signal="pressed" from="Stock/Button" to="Stock" method="_on_button_pressed"]
+[node name="Foundation" type="Node2D" parent="Deck"]
+
+[node name="Foundation1" type="Node2D" parent="Deck/Foundation"]
+script = SubResource("GDScript_vcsgt")
+
+[node name="Foundation2" type="Node2D" parent="Deck/Foundation"]
+script = ExtResource("3_0bbpv")
+
+[node name="Foundation3" type="Node2D" parent="Deck/Foundation"]
+script = ExtResource("4_vcsgt")
+
+[node name="Foundation4" type="Node2D" parent="Deck/Foundation"]
+script = ExtResource("5_c01mt")
+
+[connection signal="pressed" from="Deck/Stock/Button" to="Deck/Stock" method="draw_card"]
