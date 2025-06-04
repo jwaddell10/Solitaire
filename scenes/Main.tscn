@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vbim5dd6ujt6"]
+[gd_scene load_steps=11 format=3 uid="uid://vbim5dd6ujt6"]
 
 [ext_resource type="Script" uid="uid://d4jr77sjhoe7w" path="res://scripts/Main.gd" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://kc7mkv2huojp" path="res://scripts/stock.gd" id="2_jlsqs"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://1b0s6vuor8wn" path="res://scripts/foundation_2.gd" id="3_0bbpv"]
 [ext_resource type="Script" uid="uid://bidsge536lrqm" path="res://scripts/waste.gd" id="3_c01mt"]
 [ext_resource type="Texture2D" uid="uid://cx8k2tr25mrac" path="res://card_assets/back.png" id="3_jlsqs"]
-[ext_resource type="Script" uid="uid://cxcs0g2yonadd" path="res://scripts/waste_card.gd" id="4_q8u5g"]
 [ext_resource type="Script" uid="uid://i3amer5wubs8" path="res://scripts/foundation_3.gd" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://c0w5iar0fnv0a" path="res://scripts/foundation_4.gd" id="5_c01mt"]
 [ext_resource type="Script" uid="uid://c1x3jcd2b6hiu" path="res://scripts/tableau.gd" id="7_nxtc6"]
@@ -49,10 +48,6 @@ scale = Vector2(0.15, 0.15)
 [node name="Button" type="Button" parent="Deck/Stock/Waste_Pile"]
 offset_right = 8.0
 offset_bottom = 8.0
-
-[node name="waste_card" type="Sprite2D" parent="Deck/Stock/Waste_Pile"]
-scale = Vector2(0.15, 0.15)
-script = ExtResource("4_q8u5g")
 
 [node name="Button" type="Button" parent="Deck/Stock"]
 show_behind_parent = true

@@ -1,6 +1,6 @@
 extends Node2D
 
-var card_scene = preload("res://Card.tscn")
+var card_scene = preload("res://scenes/Card.tscn")
 @onready var waste_pile = $Waste_Pile
 @export var game_spaces : Array[Node]
 var stock_pile = []
