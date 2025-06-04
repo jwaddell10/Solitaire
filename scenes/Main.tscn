@@ -43,7 +43,7 @@ position = Vector2(844, 88)
 script = ExtResource("3_c01mt")
 
 [node name="waste_pile_location" type="Marker2D" parent="Deck/Stock/Waste_Pile"]
-position = Vector2(-112, -2)
+position = Vector2(740, 100)
 scale = Vector2(0.15, 0.15)
 
 [node name="Button" type="Button" parent="Deck/Stock/Waste_Pile"]
@@ -62,7 +62,8 @@ offset_right = 876.0
 offset_bottom = 133.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck/Stock"]
-position = Vector2(846, 88)
+position = Vector2(846, 87.5)
+scale = Vector2(1, 0.989362)
 texture = ExtResource("3_jlsqs")
 
 [node name="stock_pile_location" type="Marker2D" parent="Deck/Stock"]

@@ -1,0 +1,9 @@
+extends Sprite2D
+
+func display_card(card, card_position):
+	var rank = card.rank
+	var suit = card.suit
+	var card_name = "res://card_assets/{rank}_of_{suit}.png".format({"rank": rank, "suit": suit})
+	var path = card_name.to_lower()
+	texture = load(path)
+	position = card_position

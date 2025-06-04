@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://s61rh8encrcb"]
+
+[ext_resource type="Script" uid="uid://bpet31j8j5o1" path="res://Card.gd" id="1_yiag5"]
+[ext_resource type="Script" uid="uid://b4actbl6tgg83" path="res://CardSprite.gd" id="2_hael8"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_yiag5")
+
+[node name="CardSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_hael8")

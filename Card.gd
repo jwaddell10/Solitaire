@@ -1,23 +1,28 @@
 extends Node2D
 
-@onready var sprite : Sprite2D = $Sprite
-@onready var waste_card : Sprite2D = $waste_card
+@onready var card_sprite : Sprite2D = $CardSprite
 
-var rank: String
-var suit: String
-var is_face_up: bool = true
+#var rank: String
+#var suit: String
+#var is_face_up: bool = true
+#var card_data: Dictionary
+#var card_position: Vector2
+	
+#func _ready() -> void:
+	#show_card(card_data)
 
-func show_card(card_data: Dictionary, face_up: bool = true) -> void:
-	print(sprite, 'text path')
-	rank = card_data.rank.to_lower()
-	suit = card_data.suit.to_lower()
-	is_face_up = face_up
-	if is_face_up:
-		var texture_path = "res://card_assets/{rank}_of_{suit}.png".format({
-			"rank": rank.to_lower(),
-			"suit": suit.to_lower()
-		})
+func show_card(card_data: Dictionary, position) -> void:
+	#print(card_data, 'card data')
+	#rank = card_data.rank.to_lower()
+	#suit = card_data.suit.to_lower()
+	##is_face_up = face_up
+	#if is_face_up:
+		#var texture_path = "res://card_assets/{rank}_of_{suit}.png".format({
+			#"rank": rank.to_lower(),
+			#"suit": suit.to_lower()
+		#})
 	#var card_name = "res://card_assets/{rank}_of_{suit}.png".format({"rank": rank, "suit": suit})
+	card_sprite.display_card(card_data, position)
 	#texture = load(path)
 	#print(texture, 'texture in card')
 
